@@ -6,6 +6,8 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject enemyprefab;
     public GameObject PowerupPrefab;
+    public GameObject SmallEnemyPrefab;
+    public GameObject LargeEnemyPrefab;
 
     private float spawnRange = 9;
     public int enemycount;
@@ -26,7 +28,14 @@ public class SpawnManager : MonoBehaviour
             waveCount++;
             spawnEnemywave(waveCount);
             SpawnPowerups();
-
+            if (waveCount > 2)
+            {
+                spawnsmallEnemywave(2);
+            }
+            if (waveCount > 4)
+            {
+                spawnLargeEnemywave(1);
+            }
         }
     }
 
@@ -47,7 +56,20 @@ public class SpawnManager : MonoBehaviour
             Instantiate(enemyprefab, GenerateSpawnPosition(), enemyprefab.transform.rotation);
         }
     }
-
+    void spawnsmallEnemywave(int enemiesToSpawn)
+    {
+        for (int i = 0; i < enemiesToSpawn; i++)
+        {
+            Instantiate(SmallEnemyPrefab, GenerateSpawnPosition(), SmallEnemyPrefab.transform.rotation);
+        }
+    }
+    void spawnLargeEnemywave(int enemiesToSpawn)
+    {
+        for (int i = 0; i < enemiesToSpawn; i++)
+        {
+            Instantiate(LargeEnemyPrefab, GenerateSpawnPosition(), LargeEnemyPrefab.transform.rotation);
+        }
+    }
     void SpawnPowerups()
     {
         Instantiate(PowerupPrefab, GenerateSpawnPosition(), PowerupPrefab.transform.rotation);
