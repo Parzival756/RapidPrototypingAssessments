@@ -30,10 +30,13 @@ public class SpawnManager : MonoBehaviour
             SpawnPowerups();
             if (waveCount > 2)
             {
+                SpawnPowerups();
                 spawnsmallEnemywave(2);
             }
             if (waveCount > 4)
             {
+                SpawnPowerups();
+                SpawnPowerups();
                 spawnLargeEnemywave(1);
             }
         }
