@@ -9,13 +9,6 @@ using UnityEngine;
 
 public class TreeLifeScript : MonoBehaviour
 {
-
-    public GameObject player;
-    public GameObject TreeTrigger1; 
-    public GameObject TreeTrigger2; 
-    public GameObject TreeTrigger3; 
-    public GameObject TreeTrigger4;
-    public float timeleft = 60.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,36 +18,17 @@ public class TreeLifeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeleft -= Time.deltaTime;
-        if (timeleft <= 0)
-        {
-            GameOver();
-        }
-        TreeTime();
+           
     }
 
-    private void GameOver()
+    void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(1);
+        Timer timer = other.GetComponent<Timer>();
+        if (timer != null)
+        {
+            timer.TimeLeft();
+        }
+        Debug.Log("HEYYYYLO");
     }
 
-    private void TreeTime()
-    {
-        if (TreeTrigger1.gameObject.tag == "player")
-        {
-            timeleft =+ 60f;
-        }
-        else if (TreeTrigger2.gameObject.tag == "player")
-        {
-            timeleft = +60f;
-        }
-        else if (TreeTrigger3.gameObject.tag == "player")
-        {
-            timeleft = +60f;
-        }
-        else if (TreeTrigger4.gameObject.tag == "player")
-        {
-            timeleft = +60f;
-        }
-    }
 }

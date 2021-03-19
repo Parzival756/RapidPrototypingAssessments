@@ -7,7 +7,6 @@ public class DoorScript : MonoBehaviour
     public GameObject Player;
     public GameObject Door;
     public GameObject Button;
-    public GameObject Buttonbox;
     public GameObject ButtonTrigger;
     // Start is called before the first frame update
     void Start()
@@ -23,11 +22,8 @@ public class DoorScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (Buttonbox.gameObject.tag == "player")
-        {
             Button.transform.position = new Vector3(0, -5, 0);
             Door.SetActive(false);
             Debug.Log("HEYA");
-        }
     }
 }
