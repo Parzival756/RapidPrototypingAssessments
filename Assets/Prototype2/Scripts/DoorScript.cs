@@ -22,7 +22,7 @@ public class DoorScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-            Button.transform.position = new Vector3(0, -5, 0);
+        Button.transform.position = new Vector3(0, -5, 0) * Time.deltaTime;
             Door.SetActive(false);
             Debug.Log("HEYA");
     }

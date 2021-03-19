@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    public float timeleft = 60.0f;
+    public float timeleft;
+    public float AdditionalTime;
 
-    
+    //TimeLeft and Added Time if this idea is pushed further could be related to the level, as in the first level would have a larger timer, allowing the player to get used to the mechanics and as the game progresses there would be less time.
+    //in addition it could also be related to how large a tree root is (as in having multiple variants that give differing amounts of additional time/Life.
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,6 @@ public class Timer : MonoBehaviour
     }
     public void TimeLeft()
     {
-        timeleft = 60f;
+        timeleft = AdditionalTime;
     }
 }
